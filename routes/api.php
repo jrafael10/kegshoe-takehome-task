@@ -18,10 +18,6 @@ use Illuminate\Http\Client\ConnectionException;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (SearchByRequest $request) {
-    return $request->user();
-});
-
 
 //Grouping the api endpoints for organization
 Route::get('/breweries', function(SearchByRequest $request){
