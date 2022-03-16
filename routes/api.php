@@ -41,8 +41,8 @@ Route::get('/breweries', function(SearchByRequest $request){
         return call_open_brewery_db_api('by_city', $request->by_city);
     }
     else {
-        $response = Http::get($open_brewery_db);
-        return $response->json();
+        $breweries = Http::get($open_brewery_db);
+        return response()->json(['breweries' => $breweries->json()]);
     }
 });
 
@@ -51,12 +51,14 @@ Route::get('/breweries', function(SearchByRequest $request){
 function call_open_brewery_db_api( string $key, string $value)
 {
     $open_brewery_db = env('OPEN_DB_BREW_ENDPOINT');
-    $response = Http::get($open_brewery_db, [
+    $open_brewery_db_response = Http::get($open_brewery_db, [
         $key => $value
     ]);
 
-    if($response->successful()){
-        return $response->json();
+
+    if($open_brewery_db_response->successful()){
+
+        return response()->json(['breweries' => $open_brewery_db_response->json()]);
     }else{
         return "Api is failing...";
     }
