@@ -1,9 +1,14 @@
 # kegshoe-takehome-task
-Problem:
 
-Create an API which allows applications to find breweries by state or by
-type.
-The API should interface with Open Brewery DB. While the API should have
-at least two endpoints, it does not have to be limited to just state and type.
+To run this project in your local environment,
+please follow the steps below.
+
+<ul>
+    <li>Pull this project from Github</li>
+    <li>Open your console and cd this project's root directory</li>
+    <li>Run `composer install` </li>
+    <li>Run `php artisan serve` </li>
+</ul>
+ 
 
 
